@@ -22,7 +22,16 @@
  * @subpackage i18n
  * @ignore
  */
+
+i18n::include_locale_file('customhtmlform', 'en_US');
+
 global $lang;
+
+if (array_key_exists('de_DE', $lang) && is_array($lang['de_DE'])) {
+    $lang['de_DE'] = array_merge($lang['en_US'], $lang['de_DE']);
+} else {
+    $lang['de_DE'] = $lang['en_US'];
+}
 
 $lang['de_DE']['Form']['FIELD_MUST_BE_EMPTY'] = 'Dieses Feld muss leer sein.';
 $lang['de_DE']['Form']['FIELD_MAY_NOT_BE_EMPTY'] = 'Dieses Feld darf nicht leer sein.';
